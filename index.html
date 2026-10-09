@@ -196,6 +196,43 @@ html[lang="en"] .hero-copy .outline-btn .arrow{display:inline-block;transform:no
 @media(max-width:800px){.category-strip{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:14px!important}.category img{height:135px}}
 @media(max-width:460px){.category-strip{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px!important;padding:16px 3%!important}.category img{height:112px}.category .cat-ar{font-size:15px}.category .cat-en{font-size:12px}.category .cat-title{padding:2px 22px;min-height:48px}}
 
+
+/* Screenshot parity pass: match the supplied SAN GEORGE desktop reference */
+@media(min-width:801px){
+ .nav{height:106px;grid-template-columns:1fr 1.15fr 1fr;padding:0 3.2%}
+ .brand-name{font-size:32px}
+ .monogram{width:66px;height:58px}
+ .navlinks{gap:18px;font-size:12px}
+ .hero{min-height:386px;grid-template-columns:minmax(235px,.72fr) minmax(390px,1.28fr)}
+ .hero-copy{max-width:440px;padding:28px 16px 28px 0}
+ .category-strip{grid-template-columns:repeat(5,minmax(0,1fr))!important;gap:14px!important;padding:16px 2.4% 18px!important}
+ .category img{height:156px!important}
+ .category .cat-title{min-height:58px}
+ .market{grid-template-columns:42% minmax(300px,1fr) 245px;min-height:164px;padding-right:3%}
+ .bullion{height:164px}
+ .benefits{padding:18px 4%}
+ .footer{min-height:110px}
+}
+@media(min-width:801px) and (max-width:1100px){
+ .navlinks{gap:10px;font-size:11px}
+ .category-strip{gap:10px!important}
+ .category img{height:130px!important}
+ .category .cat-en{font-size:18px!important}
+ .category .cat-ar{font-size:15px!important}
+}
+@media(max-width:800px){
+ .category-strip{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+}
+@media(max-width:600px){
+ .category-strip{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+ .category:last-child{grid-column:auto;width:auto}
+}
+/* Reference uses black cards, gold outlines and a dark category area at every viewport. */
+.category-strip{background:#030303!important}
+.category{background:#050505!important;border:1px solid #c99b45!important;border-radius:2px;overflow:hidden}
+.category img{border:0!important;border-bottom:1px solid #8c642c!important;padding:0!important;object-fit:cover}
+.category .cat-title{margin-top:0!important;padding-top:6px;padding-bottom:7px}
+
 </style>
 </head>
 <body>
@@ -208,7 +245,7 @@ html[lang="en"] .hero-copy .outline-btn .arrow{display:inline-block;transform:no
 <main id="home">
 <section class="hero"><div class="hero-photo" role="img" aria-label="مجموعة مجوهرات ذهبية فاخرة"></div>
 <button class="cat-toggle" id="catToggle" type="button" aria-expanded="false" aria-controls="categoryDrawer" onclick="toggleCategories()">☰ <span>جميع الأقسام</span></button>
-<aside class="cat-menu" id="categoryDrawer" aria-label="قائمة الأقسام"><div class="cat-head"><span>جميع الأقسام</span><button class="cat-close" type="button" aria-label="إغلاق القائمة" onclick="toggleCategories(false)">×</button></div><a href="#categories">الخواتم <span class="sym">♙</span></a><a href="#categories">القلائد <span class="sym">♧</span></a><a href="#categories">الأساور والغوايش <span class="sym">◎</span></a><a href="#categories">الأقراط <span class="sym">♢</span></a><a href="#categories">دبل الزفاف <span class="sym">∞</span></a><a href="#categories">السبائك <span class="sym">▥</span></a><a href="#categories">كل المجوهرات <span class="sym">◇</span></a></aside>
+<aside class="cat-menu" id="categoryDrawer" aria-label="قائمة الأقسام"><div class="cat-head"><span>جميع الأقسام</span><button class="cat-close" type="button" aria-label="إغلاق القائمة" onclick="toggleCategories(false)">×</button></div><a href="#categories">الخواتم <span class="sym">♙</span></a><a href="#categories">القلائد <span class="sym">♧</span></a><a href="#categories">الأساور والغوايش <span class="sym">◎</span></a><a href="#categories">الأقراط <span class="sym">♢</span></a><a href="#categories">دبل الزفاف <span class="sym">∞</span></a><a href="#categories">كل المجوهرات <span class="sym">◇</span></a></aside>
 <div class="hero-copy"><div class="eyebrow">SAN GEORGE</div><h1>بريق لا يُنسى</h1><div class="made">Made to Dazzle.</div><p>كل قطعة تحكي قصة.. وكل لحظة تستحق تألقًا خاصًا بها.</p><a class="outline-btn" href="#categories">اكتشف مجموعتنا <span class="arrow">⟵</span></a></div><div></div>
 </section>
 <section class="category-strip" id="categories">
@@ -217,7 +254,7 @@ html[lang="en"] .hero-copy .outline-btn .arrow{display:inline-block;transform:no
 <a class="category" href="#gold"><img src="https://www.alzodigital.com/cdn/shop/products/Gold-braclets-smooth2_5000x.jpg?v=1707341656" alt="أساور وغوايش"><div class="cat-title"><span class="cat-ar">الأساور والغوايش</span><span class="cat-en">Bracelets &amp; Bangles</span><span class="circle-arrow">←</span></div></a>
 <a class="category" href="#gold"><img src="https://amaraa.com/cdn/shop/files/E060_2.jpg?v=1757757163&width=3840" alt="أقراط ذهبية"><div class="cat-title"><span class="cat-ar">الأقراط</span><span class="cat-en">Earrings</span><span class="circle-arrow">←</span></div></a>
 <a class="category" href="#gold"><img src="https://adore.lt/5594-thickbox_default/vestuviniai-ziedai.jpg" alt="دبل زفاف"><div class="cat-title"><span class="cat-ar">دبل الزفاف</span><span class="cat-en">Wedding Bands</span><span class="circle-arrow">←</span></div></a>
-<a class="category" href="#gold"><img src="https://images.unsplash.com/photo-1610375461246-83df859d849d?auto=format&fit=crop&w=1000&q=90" alt="سبائك ذهبية"><div class="cat-title"><span class="cat-ar">السبائك</span><span class="cat-en">Bullion</span><span class="circle-arrow">←</span></div></a>
+
 </section>
 
 
