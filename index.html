@@ -189,8 +189,13 @@ html[lang="ar"] .category .cat-en{order:2}
 .category .circle-arrow{position:absolute;top:50%;transform:translateY(-50%);right:6px;left:auto}
 html[lang="ar"] .category .circle-arrow{left:6px;right:auto}
 html[lang="en"] .category .circle-arrow{right:6px;left:auto}
-html[lang="ar"] .circle-arrow,html[lang="ar"] .arrow{transform:scaleX(-1)}
-html[lang="en"] .circle-arrow,html[lang="en"] .arrow{transform:none}
+/* Arrow glyphs are set by language in JavaScript; never flip them again in CSS. */
+html[lang="ar"] .category .circle-arrow,
+html[lang="en"] .category .circle-arrow,
+html[lang="ar"] .hero-copy .arrow,
+html[lang="en"] .hero-copy .arrow,
+html[lang="ar"] .market .arrow,
+html[lang="en"] .market .arrow{transform:none!important;direction:ltr;unicode-bidi:isolate;display:inline-flex;align-items:center;justify-content:center}
 html[lang="ar"] .hero-copy .outline-btn .arrow{display:inline-block;transform:scaleX(-1)}
 html[lang="en"] .hero-copy .outline-btn .arrow{display:inline-block;transform:none}
 @media(max-width:800px){.category-strip{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:14px!important}.category img{height:135px}}
@@ -249,9 +254,13 @@ html[lang="en"] .hero-copy .outline-btn .arrow{display:inline-block;transform:no
 .cat-menu a>span:first-child{order:1;flex:1}
 .benefit-icon{display:flex;align-items:center;justify-content:center}
 .benefit-icon svg{width:38px;height:38px;fill:none;stroke:#bb873c;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
-html[lang="ar"] .category .circle-arrow{transform:scaleX(-1)}
-html[lang="ar"] .hero-copy .arrow,html[lang="ar"] .market .arrow{transform:scaleX(-1)}
-html[lang="en"] .category .circle-arrow,html[lang="en"] .hero-copy .arrow,html[lang="en"] .market .arrow{transform:none}
+/* Override earlier direction rules to prevent double-reversing Arabic arrows. */
+html[lang="ar"] .category .circle-arrow,
+html[lang="en"] .category .circle-arrow,
+html[lang="ar"] .hero-copy .arrow,
+html[lang="en"] .hero-copy .arrow,
+html[lang="ar"] .market .arrow,
+html[lang="en"] .market .arrow{transform:none!important}
 
 </style>
 </head>
@@ -372,8 +381,9 @@ function toggleLanguage(){
  const marketDesc=document.querySelector('.market-main p');
  if(marketTitle) marketTitle.textContent=lang==='en'?'Gold Market':'سوق الذهب';
  if(marketDesc) marketDesc.textContent=lang==='en'?'Track gold prices and estimate your value with ease.':'تابع أسعار الذهب واحسب قيمة تقريبية بسهولة.';
- document.querySelectorAll('.category .circle-arrow').forEach(el=>el.textContent=lang==='ar'?'←':'→');
- document.querySelectorAll('.hero-copy .outline-btn .arrow').forEach(el=>el.textContent=lang==='ar'?'⟵':'⟶');
+ // Set the actual arrow glyph per language; CSS must not mirror these characters.
+ document.querySelectorAll('.category .circle-arrow').forEach(el=>{el.textContent=lang==='ar'?'←':'→';el.setAttribute('aria-label',lang==='ar'?'اتجاه لليسار':'Point right');});
+ document.querySelectorAll('.hero-copy .outline-btn .arrow,.market .outline-btn .arrow').forEach(el=>{el.textContent=lang==='ar'?'←':'→';el.style.transform='none';el.style.display='inline-flex';el.style.direction='ltr';});
  const goldBtn=document.querySelector('.market-main .outline-btn');
  if(goldBtn) goldBtn.firstChild.textContent=lang==='en'?'Gold Calculator ':'حاسبة الذهب ';
  const svc=document.querySelector('.topbar .topitem:nth-child(3)');
