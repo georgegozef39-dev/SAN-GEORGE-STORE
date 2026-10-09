@@ -233,6 +233,12 @@ html[lang="en"] .hero-copy .outline-btn .arrow{display:inline-block;transform:no
 .category img{border:0!important;border-bottom:1px solid #8c642c!important;padding:0!important;object-fit:cover}
 .category .cat-title{margin-top:0!important;padding-top:6px;padding-bottom:7px}
 
+/* Restore the sixth category: gold bullion, alongside the five jewelry categories. */
+.category-strip{grid-template-columns:repeat(6,minmax(0,1fr))!important}
+.category.bullion-category img{object-position:center 52%}
+@media(max-width:800px){.category-strip{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
+@media(max-width:600px){.category-strip .category:last-child{grid-column:auto!important;width:auto!important}}
+
 </style>
 </head>
 <body>
@@ -245,7 +251,7 @@ html[lang="en"] .hero-copy .outline-btn .arrow{display:inline-block;transform:no
 <main id="home">
 <section class="hero"><div class="hero-photo" role="img" aria-label="مجموعة مجوهرات ذهبية فاخرة"></div>
 <button class="cat-toggle" id="catToggle" type="button" aria-expanded="false" aria-controls="categoryDrawer" onclick="toggleCategories()">☰ <span>جميع الأقسام</span></button>
-<aside class="cat-menu" id="categoryDrawer" aria-label="قائمة الأقسام"><div class="cat-head"><span>جميع الأقسام</span><button class="cat-close" type="button" aria-label="إغلاق القائمة" onclick="toggleCategories(false)">×</button></div><a href="#categories">الخواتم <span class="sym">♙</span></a><a href="#categories">القلائد <span class="sym">♧</span></a><a href="#categories">الأساور والغوايش <span class="sym">◎</span></a><a href="#categories">الأقراط <span class="sym">♢</span></a><a href="#categories">دبل الزفاف <span class="sym">∞</span></a><a href="#categories">كل المجوهرات <span class="sym">◇</span></a></aside>
+<aside class="cat-menu" id="categoryDrawer" aria-label="قائمة الأقسام"><div class="cat-head"><span>جميع الأقسام</span><button class="cat-close" type="button" aria-label="إغلاق القائمة" onclick="toggleCategories(false)">×</button></div><a href="#categories">الخواتم <span class="sym">♙</span></a><a href="#categories">القلائد <span class="sym">♧</span></a><a href="#categories">الأساور والغوايش <span class="sym">◎</span></a><a href="#categories">الأقراط <span class="sym">♢</span></a><a href="#categories">دبل الزفاف <span class="sym">∞</span></a><a href="#gold">السبائك الذهبية <span class="sym">▥</span></a><a href="#categories">كل المجوهرات <span class="sym">◇</span></a></aside>
 <div class="hero-copy"><div class="eyebrow">SAN GEORGE</div><h1>بريق لا يُنسى</h1><div class="made">Made to Dazzle.</div><p>كل قطعة تحكي قصة.. وكل لحظة تستحق تألقًا خاصًا بها.</p><a class="outline-btn" href="#categories">اكتشف مجموعتنا <span class="arrow">⟵</span></a></div><div></div>
 </section>
 <section class="category-strip" id="categories">
@@ -254,6 +260,7 @@ html[lang="en"] .hero-copy .outline-btn .arrow{display:inline-block;transform:no
 <a class="category" href="#gold"><img src="https://www.alzodigital.com/cdn/shop/products/Gold-braclets-smooth2_5000x.jpg?v=1707341656" alt="أساور وغوايش"><div class="cat-title"><span class="cat-ar">الأساور والغوايش</span><span class="cat-en">Bracelets &amp; Bangles</span><span class="circle-arrow">←</span></div></a>
 <a class="category" href="#gold"><img src="https://amaraa.com/cdn/shop/files/E060_2.jpg?v=1757757163&width=3840" alt="أقراط ذهبية"><div class="cat-title"><span class="cat-ar">الأقراط</span><span class="cat-en">Earrings</span><span class="circle-arrow">←</span></div></a>
 <a class="category" href="#gold"><img src="https://adore.lt/5594-thickbox_default/vestuviniai-ziedai.jpg" alt="دبل زفاف"><div class="cat-title"><span class="cat-ar">دبل الزفاف</span><span class="cat-en">Wedding Bands</span><span class="circle-arrow">←</span></div></a>
+<a class="category bullion-category" href="#gold"><img src="https://images.unsplash.com/photo-1610375461246-83df859d849d?auto=format&fit=crop&w=1200&q=85" alt="سبائك ذهبية"><div class="cat-title"><span class="cat-ar">السبائك الذهبية</span><span class="cat-en">Gold Bullion</span><span class="circle-arrow">←</span></div></a>
 
 </section>
 
@@ -300,12 +307,12 @@ function toggleLanguage(){
  if(drawerBtn) drawerBtn.textContent=drawerText?(lang==='en'?'Hide Categories':'إخفاء الأقسام'):(lang==='en'?'All Categories':'جميع الأقسام');
  if(drawerLabel) drawerLabel.textContent=lang==='en'?'All Categories':'جميع الأقسام';
  const menuLinks=document.querySelectorAll('#categoryDrawer a');
- const menuEn=['Rings','Necklaces','Bracelets & Bangles','Earrings','Wedding Bands','All Jewelry'];
- const menuAr=['الخواتم','القلائد','الأساور والغوايش','الأقراط','دبل الزفاف','كل المجوهرات'];
+ const menuEn=['Rings','Necklaces','Bracelets & Bangles','Earrings','Wedding Bands','Gold Bullion','All Jewelry'];
+ const menuAr=['الخواتم','القلائد','الأساور والغوايش','الأقراط','دبل الزفاف','السبائك الذهبية','كل المجوهرات'];
  menuLinks.forEach((el,i)=>{const icon=el.querySelector('.sym');el.firstChild.textContent=(lang==='en'?menuEn[i]:menuAr[i])+' ';});
  const categories=document.querySelectorAll('.category');
- const categoryEn=['Rings','Necklaces','Bracelets & Bangles','Earrings','Wedding Bands'];
- const categoryAr=['الخواتم','القلائد','الأساور والغوايش','الأقراط','دبل الزفاف'];
+ const categoryEn=['Rings','Necklaces','Bracelets & Bangles','Earrings','Wedding Bands','Gold Bullion'];
+ const categoryAr=['الخواتم','القلائد','الأساور والغوايش','الأقراط','دبل الزفاف','السبائك الذهبية'];
  categories.forEach((el,i)=>{
    let ar=el.querySelector('.cat-ar'), en=el.querySelector('.cat-en');
    if(!ar){const title=el.querySelector('.cat-title'); if(title){ar=document.createElement('span');ar.className='cat-ar';ar.textContent=categoryAr[i];title.insertBefore(ar,title.firstChild);}}
