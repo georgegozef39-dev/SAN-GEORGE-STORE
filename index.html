@@ -92,6 +92,20 @@ html[lang="ar"] .category .cat-en{order:2!important}
 .service-icon{width:15px;height:15px;margin-inline-start:4px;color:var(--gold);vertical-align:middle}
 .bag-icon{width:23px;height:23px;color:var(--gold2);vertical-align:middle}
 
+
+/* Category drawer must overlay the hero and remain above the category strip */
+.hero{isolation:isolate}
+.cat-toggle{position:absolute;z-index:12}
+.cat-menu{z-index:11}
+.cat-menu.is-open{z-index:11}
+@media(max-width:600px){
+ .hero{position:relative}
+ .cat-menu{position:absolute!important;left:14px!important;right:14px!important;top:58px!important;width:auto!important;margin:0!important;display:block!important;grid-template-columns:none!important;max-height:0!important;opacity:0;pointer-events:none;transform:translateY(-8px)}
+ .cat-menu.is-open{width:auto!important;max-height:420px!important;opacity:1;pointer-events:auto;transform:translateY(0);display:block!important}
+ .cat-menu .cat-head{display:flex}
+ .cat-menu a{display:flex;justify-content:space-between}
+}
+
 </style>
 </head>
 <body>
@@ -120,7 +134,7 @@ html[lang="ar"] .category .cat-en{order:2!important}
 </main>
 <footer id="footer" class="footer"><a class="footer-brand" href="#home"><svg class="monogram" viewBox="0 0 100 88"><path d="M34 16 L25 5 L40 11 L50 0 L60 11 L75 5 L66 17" fill="none" stroke="#d6ac61" stroke-width="3"/><text x="43" y="55" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="48" fill="#e1bd73">S</text><text x="57" y="76" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="44" fill="#e1bd73">G</text></svg><div><div class="brand-name">SAN GEORGE</div><div class="brand-sub">FINE JEWELRY &amp; GOLD</div></div></a><div class="footer-center">تأسست عام 1999<br><strong>ثقة تصنع الفخامة عبر الأجيال</strong></div><div class="social">f ◎ ◉ ▣<small>تواصل معنا عبر واتساب</small></div></footer><div class="copyright">© 2026 SAN GEORGE — FINE JEWELRY &amp; GOLD</div>
 <script>
-function toggleCategories(force){const menu=document.getElementById('categoryDrawer');const btn=document.getElementById('catToggle');const open=typeof force==='boolean'?force:!menu.classList.contains('is-open');menu.classList.toggle('is-open',open);btn.setAttribute('aria-expanded',String(open));btn.querySelector('span').textContent=open?'إخفاء الأقسام':'جميع الأقسام';}
+function toggleCategories(force){const menu=document.getElementById('categoryDrawer');const btn=document.getElementById('catToggle');const open=typeof force==='boolean'?force:!menu.classList.contains('is-open');menu.classList.toggle('is-open',open);btn.setAttribute('aria-expanded',String(open));btn.querySelector('span').textContent=open?(document.documentElement.lang==='en'?'Hide Categories':'إخفاء الأقسام'):(document.documentElement.lang==='en'?'All Categories':'جميع الأقسام');const head=menu.querySelector('.cat-head > span');if(head)head.textContent=document.documentElement.lang==='en'?'All Categories':'جميع الأقسام';}
 document.addEventListener('keydown',e=>{if(e.key==='Escape')toggleCategories(false)});
 document.addEventListener('click',e=>{const menu=document.getElementById('categoryDrawer');const btn=document.getElementById('catToggle');if(menu.classList.contains('is-open')&&!menu.contains(e.target)&&!btn.contains(e.target))toggleCategories(false)});
 function toggleCalc(){const el=document.getElementById('calculator');el.classList.toggle('open');if(el.classList.contains('open')){el.scrollIntoView({behavior:'smooth',block:'center'});calculate()}}
@@ -170,6 +184,17 @@ function toggleLanguage(){
    if(ar) ar.style.order=lang==='ar'?'0':'1';
    if(en) en.style.order=lang==='ar'?'1':'0';
  });
+ const navLinks=document.querySelectorAll('.navlinks a');
+ const navEn=['Home','Products','Gold Market','Contact Us'];
+ const navAr=['الرئيسية','المنتجات','سوق الذهب','تواصل معنا'];
+ navLinks.forEach((el,i)=>{el.textContent=lang==='en'?navEn[i]:navAr[i]+(i===2?' ↗':'');});
+ const catToggleLabel=document.querySelector('#catToggle span');
+ const catHeadLabel=document.querySelector('#categoryDrawer .cat-head > span');
+ const drawerOpen=document.getElementById('categoryDrawer').classList.contains('is-open');
+ if(catToggleLabel) catToggleLabel.textContent=drawerOpen?(lang==='en'?'Hide Categories':'إخفاء الأقسام'):(lang==='en'?'All Categories':'جميع الأقسام');
+ if(catHeadLabel) catHeadLabel.textContent=lang==='en'?'All Categories':'جميع الأقسام';
+ const catClose=document.querySelector('.cat-close');
+ if(catClose) catClose.setAttribute('aria-label',lang==='en'?'Close categories':'إغلاق القائمة');
  const marketTitle=document.querySelector('.market h2');
  const marketDesc=document.querySelector('.market-main p');
  if(marketTitle) marketTitle.textContent=lang==='en'?'Gold Market':'سوق الذهب';
