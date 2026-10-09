@@ -175,6 +175,27 @@ button,.outline-btn,.language-toggle{color:#f2d18a}
 a:hover{color:#ffe1a0}
 .bullion-section{display:none!important}
 
+
+/* Six category cards: 3 columns x 2 rows */
+.category-strip{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:22px!important}
+.category .cat-title{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:54px;padding:2px 30px}
+.category .cat-ar,.category .cat-en{display:block;line-height:1.45}
+.category .cat-ar{font-size:19px;color:#f2d18a}
+.category .cat-en{font:500 13px 'Cormorant Garamond',serif;letter-spacing:.06em;color:#c99b45}
+html[lang="en"] .category .cat-en{order:1;font:700 20px 'Cormorant Garamond',serif;color:#f2d18a}
+html[lang="en"] .category .cat-ar{order:2;font-size:12px;color:#c99b45}
+html[lang="ar"] .category .cat-ar{order:1}
+html[lang="ar"] .category .cat-en{order:2}
+.category .circle-arrow{position:absolute;top:50%;transform:translateY(-50%);right:6px;left:auto}
+html[lang="ar"] .category .circle-arrow{left:6px;right:auto}
+html[lang="en"] .category .circle-arrow{right:6px;left:auto}
+html[lang="ar"] .circle-arrow,html[lang="ar"] .arrow{transform:scaleX(-1)}
+html[lang="en"] .circle-arrow,html[lang="en"] .arrow{transform:none}
+html[lang="ar"] .hero-copy .outline-btn .arrow{display:inline-block;transform:scaleX(-1)}
+html[lang="en"] .hero-copy .outline-btn .arrow{display:inline-block;transform:none}
+@media(max-width:800px){.category-strip{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:14px!important}.category img{height:135px}}
+@media(max-width:460px){.category-strip{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px!important;padding:16px 3%!important}.category img{height:112px}.category .cat-ar{font-size:15px}.category .cat-en{font-size:12px}.category .cat-title{padding:2px 22px;min-height:48px}}
+
 </style>
 </head>
 <body>
@@ -187,7 +208,7 @@ a:hover{color:#ffe1a0}
 <main id="home">
 <section class="hero"><div class="hero-photo" role="img" aria-label="مجموعة مجوهرات ذهبية فاخرة"></div>
 <button class="cat-toggle" id="catToggle" type="button" aria-expanded="false" aria-controls="categoryDrawer" onclick="toggleCategories()">☰ <span>جميع الأقسام</span></button>
-<aside class="cat-menu" id="categoryDrawer" aria-label="قائمة الأقسام"><div class="cat-head"><span>جميع الأقسام</span><button class="cat-close" type="button" aria-label="إغلاق القائمة" onclick="toggleCategories(false)">×</button></div><a href="#categories">الخواتم <span class="sym">♙</span></a><a href="#categories">القلائد <span class="sym">♧</span></a><a href="#categories">الأساور والغوايش <span class="sym">◎</span></a><a href="#categories">الأقراط <span class="sym">♢</span></a><a href="#categories">دبل الزفاف <span class="sym">∞</span></a><a href="#categories">كل المجوهرات <span class="sym">◇</span></a></aside>
+<aside class="cat-menu" id="categoryDrawer" aria-label="قائمة الأقسام"><div class="cat-head"><span>جميع الأقسام</span><button class="cat-close" type="button" aria-label="إغلاق القائمة" onclick="toggleCategories(false)">×</button></div><a href="#categories">الخواتم <span class="sym">♙</span></a><a href="#categories">القلائد <span class="sym">♧</span></a><a href="#categories">الأساور والغوايش <span class="sym">◎</span></a><a href="#categories">الأقراط <span class="sym">♢</span></a><a href="#categories">دبل الزفاف <span class="sym">∞</span></a><a href="#categories">السبائك <span class="sym">▥</span></a><a href="#categories">كل المجوهرات <span class="sym">◇</span></a></aside>
 <div class="hero-copy"><div class="eyebrow">SAN GEORGE</div><h1>بريق لا يُنسى</h1><div class="made">Made to Dazzle.</div><p>كل قطعة تحكي قصة.. وكل لحظة تستحق تألقًا خاصًا بها.</p><a class="outline-btn" href="#categories">اكتشف مجموعتنا <span class="arrow">⟵</span></a></div><div></div>
 </section>
 <section class="category-strip" id="categories">
@@ -281,6 +302,8 @@ function toggleLanguage(){
  const marketDesc=document.querySelector('.market-main p');
  if(marketTitle) marketTitle.textContent=lang==='en'?'Gold Market':'سوق الذهب';
  if(marketDesc) marketDesc.textContent=lang==='en'?'Track gold prices and estimate your value with ease.':'تابع أسعار الذهب واحسب قيمة تقريبية بسهولة.';
+ document.querySelectorAll('.category .circle-arrow').forEach(el=>el.textContent=lang==='ar'?'←':'→');
+ document.querySelectorAll('.hero-copy .outline-btn .arrow').forEach(el=>el.textContent=lang==='ar'?'⟵':'⟶');
  const goldBtn=document.querySelector('.market-main .outline-btn');
  if(goldBtn) goldBtn.firstChild.textContent=lang==='en'?'Gold Calculator ':'حاسبة الذهب ';
  const svc=document.querySelector('.topbar .topitem:nth-child(3)');
