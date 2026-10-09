@@ -262,6 +262,18 @@ html[lang="en"] .hero-copy .arrow,
 html[lang="ar"] .market .arrow,
 html[lang="en"] .market .arrow{transform:none!important}
 
+/* Reference-inspired hero image framing; remove the decorative gold sweep beneath the cover. */
+.hero:after{content:none!important;display:none!important}
+.hero-photo{background-size:cover!important;background-position:66% 43%!important;filter:saturate(.96) contrast(1.03)}
+@media(min-width:801px){.hero-photo{background-position:62% 43%!important}}
+@media(max-width:800px){.hero-photo{background-position:64% center!important}}
+.category-strip .category img{object-fit:cover;object-position:center center}
+.category-strip .category:nth-child(1) img{object-position:50% 54%}
+.category-strip .category:nth-child(2) img{object-position:50% 42%}
+.category-strip .category:nth-child(3) img{object-position:50% 55%}
+.category-strip .category:nth-child(4) img{object-position:50% 44%}
+.category-strip .category:nth-child(5) img{object-position:50% 54%}
+
 </style>
 </head>
 <body>
