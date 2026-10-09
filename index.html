@@ -148,12 +148,39 @@ html[lang="ar"] .bullion-desc-ar{font-size:14px}
 html[lang="ar"] .bullion-desc-en{font-size:12px}
 @media(max-width:650px){.bullion-cards{grid-template-columns:1fr;gap:12px}.bullion-card{display:grid;grid-template-columns:42% 1fr;align-items:center}.bullion-card img{height:125px}.bullion-heading h2{font-size:25px}.bullion-heading{text-align:center!important}}
 
+
+/* SAN GEORGE unified black & gold theme */
+:root{--black:#030303;--black2:#090909;--gold:#c99b45;--gold2:#f2d18a;--ivory:#f2d18a;--ink:#f2d18a;--muted:#c5a66d;--line:rgba(201,155,69,.55)}
+html,body{background:#030303!important;color:#f2d18a!important}
+body,main,header,footer,section,article,nav,aside,.category-strip,.benefits,.benefits-strip,.market,.calc,.calculator,.footer,.footer-inner,.nav,.topbar,.hero,.category,.benefit,.market-note,.market-main,.calc-inner,.fields,.field{background-color:#030303;color:#f2d18a}
+.nav{background:linear-gradient(90deg,#030303,#090909 50%,#030303)}
+.topbar{background:#050505;color:#f2d18a}
+.navlinks,.navlinks a,.hero-copy p,.category,.benefit p,.market p,.calc p,.footer p,.footer a,.social small,.field label{color:#d8b66d}
+.category-strip{background:#030303!important}
+.category{background:#070707!important;border:1px solid rgba(201,155,69,.5)}
+.category img{border-bottom:1px solid rgba(201,155,69,.5)}
+.category .cat-ar,.category .cat-en{color:#f2d18a}
+.market,.market-main,.market-note,.calc,.calculator,.calc-inner,.fields,.field{background:#050505!important;color:#f2d18a!important}
+.market h2,.calc h2,.section-title,.benefit strong,.footer strong{color:#f2d18a!important}
+.benefits,.benefits-strip{background:#050505!important;border-color:var(--line)!important}
+.benefit{background:#050505!important;border-color:var(--line)!important;color:#f2d18a!important}
+footer,.footer{background:#030303!important;color:#f2d18a!important}
+input,select,textarea{background:#0a0a0a!important;color:#f2d18a!important;border:1px solid #87632e!important}
+input::placeholder,textarea::placeholder{color:#b08a48!important}
+button,.outline-btn,.language-toggle{color:#f2d18a}
+.outline-btn{border-color:#c99b45!important;background:transparent!important}
+.cat-menu{background:rgba(3,3,3,.97)!important;color:#f2d18a!important}
+.cat-menu a,.cat-head{color:#f2d18a!important;border-color:#4d391b!important}
+.cat-menu a:hover{background:#171006!important}
+a:hover{color:#ffe1a0}
+.bullion-section{display:none!important}
+
 </style>
 </head>
 <body>
 <div class="topbar"><div class="topitem established-label" id="establishedLabel">♢ &nbsp; <span id="establishedText">تأسست عام 1999</span></div><div class="topitem hide-sm">ثقة تصنع الفخامة عبر الأجيال</div><div class="topitem hide-sm">خدمة العملاء&nbsp; <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4 13v-2a8 8 0 0 1 16 0v2"/><rect x="3" y="12" width="4" height="7" rx="1.5"/><rect x="17" y="12" width="4" height="7" rx="1.5"/><path d="M19 19a7 7 0 0 1-7-3h-1"/></svg></div><button class="topitem language-toggle" id="languageToggle" type="button" onclick="toggleLanguage()" aria-label="Switch language">⌄ &nbsp; العربية ◉</button></div>
 <header class="nav">
-  <nav class="navlinks"><a class="active" href="#home">الرئيسية</a><a href="#categories">المنتجات</a><a href="#gold">سوق الذهب ↗</a><a href="#bullion">السبائك</a><a href="#footer">تواصل معنا</a></nav>
+  <nav class="navlinks"><a class="active" href="#home">الرئيسية</a><a href="#categories">المنتجات</a><a href="#gold">سوق الذهب ↗</a><a href="#categories">السبائك</a><a href="#footer">تواصل معنا</a></nav>
   <a class="brand" href="#home" aria-label="SAN GEORGE home"><svg class="monogram" viewBox="0 0 100 88" aria-label="Crowned SG logo"><defs><linearGradient id="g" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#fff0ba"/><stop offset=".45" stop-color="#c99b45"/><stop offset="1" stop-color="#8c5b20"/></linearGradient></defs><path d="M34 16 L25 5 L40 11 L50 0 L60 11 L75 5 L66 17" fill="none" stroke="url(#g)" stroke-width="3"/><path d="M24 23 Q50 7 76 23" fill="none" stroke="url(#g)" stroke-width="2"/><text class="letter-s" x="43" y="55" text-anchor="middle" font-family="Cormorant Garamond,serif" fill="url(#g)" stroke="#5f3b13" stroke-width=".6">S</text><text class="letter-g" x="57" y="76" text-anchor="middle" font-family="Cormorant Garamond,serif" fill="url(#g)" stroke="#5f3b13" stroke-width=".5">G</text></svg><div class="brand-name">SAN GEORGE</div><div class="brand-sub">FINE JEWELRY &amp; GOLD</div></a>
   <div class="navtools"><button class="icon-btn" aria-label="بحث" onclick="document.querySelector('#categories').scrollIntoView({behavior:'smooth'})">⌕</button><button class="icon-btn" aria-label="السلة" onclick="alert('سيتم تفعيل سلة التسوق عند إضافة المنتجات الفعلية')"><svg class="bag-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 8h14l1 13H4L5 8Z"/><path d="M9 9V6a3 3 0 0 1 6 0v3"/></svg><small style="font-size:10px">(0)</small></button></div>
 </header>
@@ -169,21 +196,10 @@ html[lang="ar"] .bullion-desc-en{font-size:12px}
 <a class="category" href="#gold"><img src="https://www.alzodigital.com/cdn/shop/products/Gold-braclets-smooth2_5000x.jpg?v=1707341656" alt="أساور وغوايش"><div class="cat-title"><span class="cat-ar">الأساور والغوايش</span><span class="cat-en">Bracelets &amp; Bangles</span><span class="circle-arrow">←</span></div></a>
 <a class="category" href="#gold"><img src="https://amaraa.com/cdn/shop/files/E060_2.jpg?v=1757757163&width=3840" alt="أقراط ذهبية"><div class="cat-title"><span class="cat-ar">الأقراط</span><span class="cat-en">Earrings</span><span class="circle-arrow">←</span></div></a>
 <a class="category" href="#gold"><img src="https://adore.lt/5594-thickbox_default/vestuviniai-ziedai.jpg" alt="دبل زفاف"><div class="cat-title"><span class="cat-ar">دبل الزفاف</span><span class="cat-en">Wedding Bands</span><span class="circle-arrow">←</span></div></a>
+<a class="category" href="#gold"><img src="https://images.unsplash.com/photo-1610375461246-83df859d849d?auto=format&fit=crop&w=1000&q=90" alt="سبائك ذهبية"><div class="cat-title"><span class="cat-ar">السبائك</span><span class="cat-en">Bullion</span><span class="circle-arrow">←</span></div></a>
 </section>
 
-<section class="bullion-section" id="bullion">
- <div class="bullion-heading">
-  <span class="bullion-kicker" data-ar="اختيار الاستثمار الآمن" data-en="A timeless investment">اختيار الاستثمار الآمن</span>
-  <h2><span class="bullion-title-ar">السبائك الذهبية</span><span class="bullion-title-en">Gold Bullion</span></h2>
-  <p><span class="bullion-desc-ar">سبائك ذهب بأوزان متنوعة، خيار يجمع بين القيمة والادخار.</span><span class="bullion-desc-en">Gold bars in a range of weights, combining lasting value with a smart way to save.</span></p>
- </div>
- <div class="bullion-cards">
-  <article class="bullion-card"><img src="https://images.unsplash.com/photo-1610375461246-83df859d849d?auto=format&fit=crop&w=900&q=85" alt="سبيكة ذهب"><div class="bullion-card-copy"><strong data-ar="سبائك ذهبية" data-en="Gold Bars">سبائك ذهبية</strong><span data-ar="نقاء عالٍ وأوزان متنوعة" data-en="High purity · Multiple weights">نقاء عالٍ وأوزان متنوعة</span></div></article>
-  <article class="bullion-card"><img src="https://images.unsplash.com/photo-1610375461369-d613b6e4c5c4?auto=format&fit=crop&w=900&q=85" alt="سبائك ذهب للاستثمار"><div class="bullion-card-copy"><strong data-ar="سبائك للاستثمار" data-en="Investment Bullion">سبائك للاستثمار</strong><span data-ar="قيمة واضحة وادخار طويل الأجل" data-en="Clear value · Long-term saving">قيمة واضحة وادخار طويل الأجل</span></div></article>
-  <article class="bullion-card"><img src="https://images.unsplash.com/photo-1610375461246-83df859d849d?auto=format&fit=crop&w=900&q=85" alt="ذهب نقي"><div class="bullion-card-copy"><strong data-ar="ذهب نقي" data-en="Pure Gold">ذهب نقي</strong><span data-ar="اطّلع على السعر قبل الشراء" data-en="Check the price before purchase">اطّلع على السعر قبل الشراء</span></div></article>
- </div>
- <p class="bullion-footnote" data-ar="الأسعار تقديرية وتتغير حسب سعر الذهب والمصنعية والتوافر. لا تتوفر عملية شراء إلكترونية حاليًا." data-en="Prices are indicative and vary with gold rates, premiums, and availability. Online checkout is not currently available.">الأسعار تقديرية وتتغير حسب سعر الذهب والمصنعية والتوافر. لا تتوفر عملية شراء إلكترونية حاليًا.</p>
-</section>
+
 
 <section class="market" id="gold"><div class="bullion" role="img" aria-label="سبائك ذهب"></div><div class="market-main"><div class="market-icon">▥</div><div><h2>سوق الذهب</h2><p>تابع أسعار الذهب لحظة بلحظة واحسب قيمتك بسهولة.</p><button class="outline-btn" onclick="toggleCalc()">حاسبة الذهب <span class="arrow">▦</span></button></div></div><div class="market-note"><span id="goldStatus">⟳ &nbsp; جاري جلب سعر الذهب</span><small id="goldUpdated">السعر يتحدث من مصدر خارجي عند توفره</small></div></section>
 <section class="calc" id="calculator"><div class="calc-inner"><div><h2>حاسبة الذهب</h2><p>احسب قيمة تقريبية للذهب حسب العيار والوزن.</p></div><div class="fields"><div class="field"><label for="karat">اختر العيار</label><select id="karat"><option value="24">عيار 24</option><option value="22">عيار 22</option><option value="21" selected>عيار 21</option><option value="18">عيار 18</option><option value="14">عيار 14</option></select></div><div class="field"><label for="weight">الوزن بالجرام</label><input id="weight" type="number" min=".1" step=".1" value="1"></div><div class="field"><label for="rate">سعر جرام عيار 24 (جنيه)</label><input id="rate" type="number" min="1" value="4000"></div><button class="outline-btn" style="background:#2b1c0c" onclick="calculate()">احسب السعر</button></div><div class="calc-result" id="result" aria-live="polite"></div></div></section>
