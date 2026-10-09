@@ -65,10 +65,25 @@ html[lang="en"] .field label,html[lang="en"] .calc h2,html[lang="en"] .calc p{te
 @media(max-width:600px){.hero{direction:rtl;display:flex;flex-direction:column;min-height:580px;justify-content:flex-end;padding:0 15px 22px}.cat-toggle{left:14px;top:14px}.cat-menu{left:14px;top:58px;width:0}.cat-menu.is-open{width:calc(100% - 28px);max-height:300px;display:block;grid-template-columns:none}.cat-menu a{justify-content:space-between;padding:8px 12px}.cat-menu .cat-head{grid-column:auto}.hero-copy{padding-top:4px}.category img{height:150px}}
 @media(min-width:1400px){.hero{min-height:400px}.category img{height:185px}}@media(max-width:900px){.nav{height:auto;min-height:115px;padding:18px 4%;grid-template-columns:1fr 1fr}.brand{grid-column:1/-1;grid-row:1;margin-bottom:16px}.navlinks{grid-row:2;gap:12px;flex-wrap:wrap;font-size:12px}.navtools{grid-row:2;justify-content:flex-start}.hero{grid-template-columns:180px 1fr;min-height:410px}.hero-photo{background-position:61% center}.cat-menu{width:160px}.hero-copy{padding:25px 12px}.category-strip{gap:10px;padding:16px 2%}.category img{height:120px}.cat-title{font-size:15px;gap:5px}.market{grid-template-columns:32% 1fr;padding-right:3%;gap:15px}.market-note{display:none}.benefits{padding:20px 2%;gap:5px}.benefit{gap:8px}.benefit strong{font-size:13px}.benefit span{font-size:10px}.benefit-icon{font-size:28px}.footer{padding:18px 3%;gap:10px}.footer-brand .brand-name{font-size:20px}}
 @media(max-width:600px){.topbar{height:auto;min-height:35px;padding:7px 3%;font-size:9px;gap:7px}.topbar .hide-sm{display:none}.nav{grid-template-columns:1fr auto;padding:13px 4%;min-height:0}.brand{grid-column:1/-1;grid-row:1;margin-bottom:13px}.monogram{height:55px;width:62px}.brand-name{font-size:28px}.navlinks{grid-column:1/-1;grid-row:3;justify-content:center;border-top:1px solid #3a2b19;padding-top:11px;margin-top:11px}.navtools{grid-column:1;grid-row:2}.hero{display:flex;flex-direction:column;min-height:580px;justify-content:flex-end;padding:0 15px 22px}.hero-photo{background-position:70% center;background-image:linear-gradient(0deg,rgba(5,3,2,.94) 0%,rgba(5,3,2,.7) 38%,rgba(5,3,2,.03) 100%),url('https://contessajewellers.com/cdn/shop/files/Gemini_Generated_Image_i4n21qi4n21qi4n2.png?v=1771306098&width=1946')}.cat-menu{position:relative;width:100%;margin:0 0 16px;display:grid;grid-template-columns:repeat(3,1fr)}.cat-head{grid-column:1/-1}.cat-menu a{padding:8px 7px;font-size:11px;justify-content:center;gap:6px}.hero-copy{padding:0 4px;max-width:100%;align-self:stretch}.eyebrow{font-size:12px}.hero h1{font-size:43px}.made{font-size:33px}.hero-copy p{font-size:12px}.category-strip{grid-template-columns:repeat(2,minmax(0,1fr));padding:16px;gap:14px}.category:last-child{grid-column:1/-1;width:calc(50% - 7px);justify-self:center}.category img{height:150px}.cat-title{font-size:17px}.market{grid-template-columns:1fr;padding:0 0 20px;gap:14px}.bullion{height:150px}.market-main{padding:0 18px;gap:13px}.market-icon{width:48px;height:48px;font-size:25px}.market h2{font-size:20px}.market p{font-size:12px}.market-note{display:block;border-right:0;padding:0 20px}.benefits{grid-template-columns:repeat(2,1fr);padding:17px 10px;gap:14px}.benefit{justify-content:flex-start;border:0;padding:5px}.benefit strong{font-size:12px}.benefit span{font-size:10px}.benefit-icon{font-size:27px}.footer{grid-template-columns:1fr;text-align:center;gap:15px}.footer-brand{justify-content:center}.footer-center{border:0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:12px}.social{padding:4px}.fields{width:100%}.field{flex:1}.field input,.field select{width:100%;min-width:0}}
+
+/* Final bilingual fixes: top status, category ordering and gold ticker */
+.topbar .established-label{direction:ltr;letter-spacing:.08em}
+html[lang="ar"] .topbar .established-label{direction:rtl;letter-spacing:0}
+.category .cat-title{display:flex;flex-direction:column;gap:0}
+.category .cat-title .circle-arrow{position:absolute;right:8px;bottom:7px}
+.category{position:relative}
+html[lang="en"] .category .cat-title{flex-direction:column}
+html[lang="en"] .category .cat-ar{order:2;font-size:13px;direction:rtl;color:#9c815d;margin-top:2px}
+html[lang="en"] .category .cat-en{order:1;font-size:24px;direction:ltr;color:inherit;margin-top:8px}
+html[lang="ar"] .category .cat-ar{order:1}
+html[lang="ar"] .category .cat-en{order:2}
+html[lang="en"] .market-note{direction:ltr;text-align:left}
+html[lang="en"] #goldStatus,html[lang="en"] #goldUpdated{direction:ltr;unicode-bidi:plaintext;text-align:left}
+
 </style>
 </head>
 <body>
-<div class="topbar"><div class="topitem en">♢ &nbsp; ESTABLISHED 1999</div><div class="topitem hide-sm">ثقة تصنع الفخامة عبر الأجيال</div><div class="topitem hide-sm">خدمة العملاء&nbsp; <span class="gold-dot">♧</span></div><button class="topitem language-toggle" id="languageToggle" type="button" onclick="toggleLanguage()" aria-label="Switch language">⌄ &nbsp; العربية ◉</button></div>
+<div class="topbar"><div class="topitem established-label" id="establishedLabel">♢ &nbsp; <span id="establishedText">تأسست عام 1999</span></div><div class="topitem hide-sm">ثقة تصنع الفخامة عبر الأجيال</div><div class="topitem hide-sm">خدمة العملاء&nbsp; <span class="gold-dot">♧</span></div><button class="topitem language-toggle" id="languageToggle" type="button" onclick="toggleLanguage()" aria-label="Switch language">⌄ &nbsp; العربية ◉</button></div>
 <header class="nav">
   <nav class="navlinks"><a class="active" href="#home">الرئيسية</a><a href="#categories">المنتجات</a><a href="#gold">سوق الذهب ↗</a><a href="#footer">تواصل معنا</a></nav>
   <a class="brand" href="#home" aria-label="SAN GEORGE home"><svg class="monogram" viewBox="0 0 100 88" aria-label="Crowned SG logo"><defs><linearGradient id="g" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#fff0ba"/><stop offset=".45" stop-color="#c99b45"/><stop offset="1" stop-color="#8c5b20"/></linearGradient></defs><path d="M34 16 L25 5 L40 11 L50 0 L60 11 L75 5 L66 17" fill="none" stroke="url(#g)" stroke-width="3"/><path d="M24 23 Q50 7 76 23" fill="none" stroke="url(#g)" stroke-width="2"/><text class="letter-s" x="43" y="55" text-anchor="middle" font-family="Cormorant Garamond,serif" fill="url(#g)" stroke="#5f3b13" stroke-width=".6">S</text><text class="letter-g" x="57" y="76" text-anchor="middle" font-family="Cormorant Garamond,serif" fill="url(#g)" stroke="#5f3b13" stroke-width=".5">G</text></svg><div class="brand-name">SAN GEORGE</div><div class="brand-sub">FINE JEWELRY &amp; GOLD</div></a>
@@ -115,7 +130,7 @@ function toggleLanguage(){
  const lang=currentLang;
  document.documentElement.lang=lang;
  document.documentElement.dir=lang==='ar'?'rtl':'ltr';
- document.getElementById('languageToggle').innerHTML=lang==='ar'?'⌄ &nbsp; العربية ◉':'⌄ &nbsp; English ◉';
+ document.getElementById('languageToggle').innerHTML=lang==='ar'?'⌄ &nbsp; ENGLISH ◉':'⌄ &nbsp; العربية ◉';
  document.querySelectorAll('body *').forEach(el=>{
    if(el.children.length===0 && !['SCRIPT','STYLE'].includes(el.tagName) && !['goldUpdated','goldStatus','result'].includes(el.id)) setLanguageText(el,lang);
  });
@@ -147,6 +162,10 @@ function toggleLanguage(){
  if(goldBtn) goldBtn.firstChild.textContent=lang==='en'?'Gold Calculator ':'حاسبة الذهب ';
  const svc=document.querySelector('.topbar .topitem:nth-child(3)');
  if(svc) svc.innerHTML=(lang==='en'?'Customer Service':'خدمة العملاء')+'&nbsp; <span class="gold-dot">♧</span>';
+ const established=document.getElementById('establishedText');
+ if(established) established.textContent=lang==='en'?'SINCE 1999':'تأسست عام 1999';
+ const languageButton=document.getElementById('languageToggle');
+ if(languageButton) languageButton.innerHTML=lang==='ar'?'⌄ &nbsp; ENGLISH ◉':'⌄ &nbsp; العربية ◉';
  const topTag=document.querySelector('.topbar .hide-sm');
  if(topTag) topTag.textContent=lang==='en'?'Luxury in Every Detail':'ثقة تصنع الفخامة عبر الأجيال';
  const footer=document.querySelector('.footer-center');
@@ -174,7 +193,7 @@ async function refreshGoldPrice(){
   const egpPerGram24=usdPerOunce/31.1034768*egpPerUsd;
   document.getElementById('rate').value=String(Math.round(egpPerGram24));
   const karat21=Math.round(egpPerGram24*21/24);
-  status.textContent=currentLang==='en'?'Live gold price · 21K':'سعر جرام الذهب عيار 21';
+  status.textContent=currentLang==='en'?'21K Gold Gram Price':'سعر جرام الذهب عيار 21';
   updated.textContent=currentLang==='en'?karat21.toLocaleString('en-US')+' EGP approx. · Updated '+new Date().toLocaleTimeString('en-US',{hour:'2-digit',minute:'2-digit'}):karat21.toLocaleString('ar-EG')+' ج.م تقريبًا · تحديث '+new Date().toLocaleTimeString('ar-EG',{hour:'2-digit',minute:'2-digit'});
   calculate();
  }catch(e){
